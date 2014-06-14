@@ -1,0 +1,19 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="BulletinReader.Layout" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <script src="assets/js/bulletin-reader.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bulletin-reader.min.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="content" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulletinReader", "BulletinReader\BulletinReader.csproj", "{3018A5EF-B999-423A-9FE9-664F99913BBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasslehoff.Library", "Tasslehoff.Library\Tasslehoff.Library.csproj", "{EE4831DA-A8FA-46BB-8C06-0128EDD0C856}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3018A5EF-B999-423A-9FE9-664F99913BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3018A5EF-B999-423A-9FE9-664F99913BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3018A5EF-B999-423A-9FE9-664F99913BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3018A5EF-B999-423A-9FE9-664F99913BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE4831DA-A8FA-46BB-8C06-0128EDD0C856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE4831DA-A8FA-46BB-8C06-0128EDD0C856}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE4831DA-A8FA-46BB-8C06-0128EDD0C856}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE4831DA-A8FA-46BB-8C06-0128EDD0C856}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
