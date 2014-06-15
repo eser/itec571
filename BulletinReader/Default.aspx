@@ -14,6 +14,7 @@
             </div>
             <div class="col-sm-10">
                 ...
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             </div>
         </div>
     </div>

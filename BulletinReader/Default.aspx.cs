@@ -1,11 +1,17 @@
-﻿using System;
-
-namespace BulletinReader
+﻿namespace BulletinReader
 {
-    public partial class Default : System.Web.UI.Page
+    using System;
+    using System.Linq;
+    using System.Web.UI;
+
+    public partial class Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var x = from author in Global.Instance.DbContext.Authors
+                    select author;
+
+            this.TextBox1.Text = x.FirstOrDefault().Name;
         }
     }
 }
