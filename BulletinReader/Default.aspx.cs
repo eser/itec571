@@ -8,7 +8,7 @@
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var x = from author in Global.Instance.DbContext.Authors
+            var x = from author in Global.Instance.DbContextMain.Authors
                     select author;
 
             this.TextBox1.Text = x.FirstOrDefault().Name;

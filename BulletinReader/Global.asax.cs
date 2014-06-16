@@ -10,17 +10,17 @@
     {
         public static Global Instance { get; private set; }
 
-        public DbContextMain DbContext { get; private set; }
+        public DbContextMain DbContextMain { get; private set; }
 
         protected void Application_Start(object sender, EventArgs e)
         {
             Global.Instance = this;
 
-            DbContextMainInitializer initializer = new DbContextMainInitializer();
-            Database.SetInitializer<DbContextMain>(initializer);
+            DbContextMainInitializer mainInitializer = new DbContextMainInitializer();
+            Database.SetInitializer<DbContextMain>(mainInitializer);
 
-            this.DbContext = new DbContextMain(ConfigurationManager.ConnectionStrings["DbMainConnectionString"].ConnectionString);
-            this.DbContext.Database.Initialize(false);
+            this.DbContextMain = new DbContextMain(ConfigurationManager.ConnectionStrings["DbMainConnectionString"].ConnectionString);
+            this.DbContextMain.Database.Initialize(false);
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -1738,6 +1738,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataClasses\Article.cs" />
+    <Compile Include="DataClasses\User.cs" />
     <Compile Include="DataClasses\Author.cs" />
     <Compile Include="DataClasses\DbContextMain.cs" />
     <Compile Include="DataClasses\DbContextMainInitializer.cs" />

@@ -11,35 +11,52 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">BulletinReader</a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="./">Home</a></li>
-                        <li><a href="#">Link</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <% if (!this.SignedIn) { %>
-                        <li><a class="signin-popup" href="#">Sign In</a></li>
-                        <% } else { %>
-                        <li><a class="signin-popup" href="#">Sign Out</a></li>
-                        <% } %>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">BulletinReader</a>
             </div>
-        </nav>
 
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="./">Home</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="input-append" method="GET" action="/search" style="margin-top:4px;margin-bottom:5px;">
+                            <input type="text" title="Enter keyword(s) to find" id="kw" name="kw" class="span2" maxlength="40">
+                            <button type="submit" class="btn"><i class="icon-search" title="Search"></i></button>
+                        </form>
+                    </li>
+                    <% if (!this.SignedIn) { %>
+                    <li class="dropdown" id="menu-signin">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="nav-signin">Sign In</a>
+                        <div class="dropdown-menu" style="padding: 17px;">
+                            <form id="formLogin" class="form">
+                                <label>Sign In</label>
+                                <input name="username" id="username" type="text" placeholder="Username" />
+                                <input name="password" id="password" type="password" placeholder="Password" />
+                                <br />
+                                <button type="button" id="btnLogin" class="btn btn-default navbar-btn">Login</button>
+                            </form>
+                        </div>
+                    </li>
+                    <% } else { %>
+                    <li><a class="signin-popup" href="#">Sign Out</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <form id="form1" runat="server">
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
     </form>

@@ -2,18 +2,13 @@
 {
     using System.Data.Common;
     using System.Data.Entity;
-    using System.Data.Entity.Core.Objects;
     using System.Data.Entity.Infrastructure;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class DbContextMain : DbContext
+    public class DbContextMain : IdentityDbContext<User>
     {
         public DbContextMain()
             : base()
-        {
-        }
-
-        public DbContextMain(DbCompiledModel model)
-            : base(model)
         {
         }
 
@@ -22,23 +17,13 @@
         {
         }
 
-        public DbContextMain(DbConnection existingConnection, bool contextOwnsConnection)
-            : base(existingConnection, contextOwnsConnection)
+        public DbContextMain(string nameOrConnectionString, bool throwIfV1Schema)
+            : base(nameOrConnectionString, throwIfV1Schema)
         {
         }
 
-        public DbContextMain(ObjectContext objectContext, bool dbContextOwnsObjectContext)
-            : base(objectContext, dbContextOwnsObjectContext)
-        {
-        }
-
-        public DbContextMain(string nameOrConnectionString, DbCompiledModel model)
-            : base(nameOrConnectionString, model)
-        {
-        }
-
-        public DbContextMain(DbConnection existingConnection, DbCompiledModel model, bool dbContextOwnsObjectContext)
-            : base(existingConnection, model, dbContextOwnsObjectContext)
+        public DbContextMain(DbConnection existingConnection, DbCompiledModel model, bool contextOwnsConnection)
+            : base(existingConnection, model, contextOwnsConnection)
         {
         }
 
