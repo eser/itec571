@@ -2,15 +2,87 @@
 {
     using System;
     using System.Linq;
+    using System.Web.UI.HtmlControls;
+    using System.Web.UI.WebControls;
 
     public partial class Default : BasePage
     {
+        public const int PageSize = 25;
+
+        public int CurrentPage
+        {
+            get
+            {
+                if (this.Request.QueryString["page"] == null)
+                {
+                    return 1;
+                }
+
+                return int.Parse(this.Request.QueryString["page"]);
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var x = from author in Global.Instance.DbContextMain.Authors
-                    select author;
+            if (!this.IsPostBack)
+            {
+                this.FetchData();
+            }
+        }
 
-            this.TextBox1.Text = x.FirstOrDefault().Name;
+        private void FetchData()
+        {
+            var articles = (from article in Global.Instance.DbContextMain.Articles
+                            orderby article.StoreDate descending, article.PublishDate descending
+                            select new { Article = article, Author = article.Author });
+
+            int skip = (this.CurrentPage - 1) * Default.PageSize;
+            if (skip < 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            this.ArticleRepeater.DataSource = articles.Skip(skip).Take(Default.PageSize).ToList();
+            this.ArticleRepeater.DataBind();
+
+            this.ArticlePaging.Text = "";
+
+            if (this.CurrentPage > 1)
+            {
+                this.ArticlePaging.Text += string.Format("<li><a href=\"./?page={0}\">&laquo;</a></li>", this.CurrentPage - 1);
+            }
+            else
+            {
+                this.ArticlePaging.Text += "<li class=\"disabled\"><span>&laquo;</span></li>";
+            }
+
+            int rowCount = articles.Count();
+            int pageCount = rowCount / Default.PageSize;
+            if (pageCount <= 0)
+            {
+                pageCount = 1;
+            }
+
+            for (int i = 1; i <= pageCount; i++)
+            {
+                string addClass = string.Empty;
+
+                if (i == this.CurrentPage)
+                {
+                    addClass = " class=\"active\"";
+                }
+
+                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"./?page={1}\">{1}</a></li>", addClass, i);
+            }
+
+            if (this.CurrentPage < pageCount)
+            {
+                this.ArticlePaging.Text += string.Format("<li><a href=\"./?page={0}\">&raquo;</a></li>", this.CurrentPage + 1);
+            }
+            else
+            {
+                this.ArticlePaging.Text += "<li class=\"disabled\"><span>&raquo;</span></li>";
+            }
         }
     }
 }

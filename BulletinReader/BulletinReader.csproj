@@ -1131,6 +1131,7 @@
     <Content Include="assets\node_modules\grunt\node_modules\underscore.string\test\test_underscore\vendor\qunit.js" />
     <Content Include="assets\node_modules\grunt\node_modules\underscore.string\test\underscore.js" />
     <Content Include="assets\node_modules\grunt\node_modules\which\which.js" />
+    <Content Include="Register.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Layout.Master" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
@@ -1794,11 +1795,20 @@
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="DataClasses\PurchasedItems.cs" />
     <Compile Include="DataClasses\Article.cs" />
+    <Compile Include="DataClasses\PurchasedItemStatus.cs" />
     <Compile Include="DataClasses\User.cs" />
     <Compile Include="DataClasses\Author.cs" />
     <Compile Include="DataClasses\DbContextMain.cs" />
     <Compile Include="DataClasses\DbContextMainInitializer.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

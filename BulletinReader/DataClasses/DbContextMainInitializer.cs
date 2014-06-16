@@ -41,8 +41,39 @@
 
             List<Article> articles = new List<Article>()
             {
-                new Article() { ArticleId = Guid.NewGuid(), Author = authorEser, Title = "Test Article I" },
-                new Article() { ArticleId = Guid.NewGuid(), Author = authorEser, Title = "Test Article II" }
+                new Article() {
+                    ArticleId = Guid.NewGuid(),
+                    Author = authorEser,
+                    Title = "Test Article I",
+                    Review = "first review for a test article",
+                    Content = "",
+                    CoverImagePath = null,
+                    PublishDate = new DateTime(2012, 12, 12, 12, 12, 12),
+                    StoreDate = DateTime.UtcNow
+                },
+
+                new Article() {
+                    ArticleId = Guid.NewGuid(),
+                    Author = authorEser,
+                    Title = "Test Article II",
+                    Review = "second review for another test article",
+                    Content = "",
+                    CoverImagePath = null,
+                    PublishDate = new DateTime(2013, 1, 1, 15, 0, 0),
+                    StoreDate = DateTime.UtcNow
+                },
+
+
+                new Article() {
+                    ArticleId = Guid.NewGuid(),
+                    Author = authorEser,
+                    Title = "Test Article III",
+                    Review = "second review for an another test article",
+                    Content = "",
+                    CoverImagePath = null,
+                    PublishDate = new DateTime(2014, 4, 16, 6, 30, 0),
+                    StoreDate = DateTime.UtcNow
+                }
             };
 
 

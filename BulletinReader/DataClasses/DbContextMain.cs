@@ -29,5 +29,6 @@
 
         public DbSet<Article> Articles { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<PurchasedItem> PurchasedItems { get; set; }
     }
 }

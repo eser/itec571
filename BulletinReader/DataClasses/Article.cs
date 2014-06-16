@@ -12,6 +12,16 @@
 
         public string Title { get; set; }
 
+        public string Review { get; set; }
+
+        public string Content { get; set; }
+
+        public string CoverImagePath { get; set; }
+
+        public DateTime PublishDate { get; set; }
+
+        public DateTime StoreDate { get; set; }
+
         [ForeignKey("Author")]
         public Guid AuthorId { get; set; }
 

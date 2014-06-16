@@ -1,7 +1,5 @@
 ﻿namespace BulletinReader.Api
 {
-    using System.Net;
-    using System.Net.Http;
     using System.Security.Claims;
     using System.Web;
     using System.Web.Http;
