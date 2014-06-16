@@ -2,9 +2,8 @@
 {
     using System;
     using System.Linq;
-    using System.Web.UI;
 
-    public partial class Default : Page
+    public partial class Default : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

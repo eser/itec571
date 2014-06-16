@@ -4,6 +4,8 @@
     using System.Configuration;
     using System.Data.Entity;
     using System.Web;
+    using System.Web.Http;
+    using System.Web.Routing;
     using BulletinReader.DataClasses;
 
     public class Global : HttpApplication
@@ -21,6 +23,12 @@
 
             this.DbContextMain = new DbContextMain(ConfigurationManager.ConnectionStrings["DbMainConnectionString"].ConnectionString);
             this.DbContextMain.Database.Initialize(false);
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -17,3 +17,23 @@ body {
         display: none;
     }
 }
+
+.dropdown-menu-custom {
+    padding: 17px;
+    width: 200px;
+}
+
+.navbar-input-group {
+  font-size: 0px;
+}
+
+.navbar-input-group input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.navbar-input-group .btn {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 0px;
+}

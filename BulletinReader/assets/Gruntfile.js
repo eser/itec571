@@ -11,6 +11,7 @@ module.exports = function(grunt) {
                     'js/jquery.js',
                     'js/bootstrap.js',
                     'js/bootstrap-datepicker.js',
+                    'js/laroux.js',
                     'js/script.js'
                 ],
                 dest: 'js/<%= pkg.name %>.js'
@@ -20,6 +21,7 @@ module.exports = function(grunt) {
                     'css/bootstrap.css',
                     'css/bootstrap-datepicker.css',
                     'css/font-awesome.css',
+                    'css/laroux.ui.css',
                     'css/fonts.css',
                     'css/style.css'
                 ],
