@@ -61,11 +61,29 @@ namespace BulletinReader.Api.App_LocalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to E-mail address &apos;{0}&apos; is not confirmed..
+        /// </summary>
+        public static string EmailIsNotConfirmed {
+            get {
+                return ResourceManager.GetString("EmailIsNotConfirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid e-mail address &apos;{0}&apos;..
         /// </summary>
         public static string InvalidEmail {
             get {
                 return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid password for &apos;{0}&apos;..
+        /// </summary>
+        public static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
             }
         }
     }

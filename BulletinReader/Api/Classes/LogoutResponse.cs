@@ -3,7 +3,7 @@
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class LoginResponse : BaseResponse
+    public class LogoutResponse : BaseResponse
     {
     }
 }

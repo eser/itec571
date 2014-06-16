@@ -3,7 +3,7 @@
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class LoginRequest
+    public class LoginRequest : BaseRequest
     {
         [DataMember(Name = "email")]
         public string Email { get; set; }
