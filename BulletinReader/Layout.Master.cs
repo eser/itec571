@@ -14,10 +14,17 @@
         }
 
         public User LoggedUser { get; set; }
+        public string SearchBoxText { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             this.LoggedUser = Global.Instance.UserManager.FindById(HttpContext.Current.User.Identity.GetUserId());
+
+            Search searchPage = this.Page as Search;
+            if (searchPage != null)
+            {
+                this.SearchBoxText = searchPage.Query;
+            }
         }
     }
 }

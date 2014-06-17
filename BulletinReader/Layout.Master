@@ -34,7 +34,7 @@
                 </ul>
                 <form class="navbar-form navbar-left navbar-input-group" method="GET" action="Search.aspx" role="search">
                     <div class="form-group">
-                        <input class="form-control" name="q" type="text" placeholder="Enter keyword(s) to find" />
+                        <input class="form-control" name="q" type="text" placeholder="Enter keyword(s) to find" value="<%= this.SearchBoxText %>" />
                         <button type="submit" class="btn"><span class="glyphicon glyphicon-search" title="Search"></span></button>
                     </div>
                 </form>

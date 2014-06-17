@@ -8003,3 +8003,10 @@ body {
   border-bottom-left-radius: 0px;
   border-left: 0px;
 }
+
+.search-highlight {
+    background-color: #f0ad4e;
+    padding: .2em .6em .3em;
+    color: #fff;
+    border-radius: .25em;
+}

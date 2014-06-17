@@ -2,8 +2,6 @@
 {
     using System;
     using System.Linq;
-    using System.Web.UI.HtmlControls;
-    using System.Web.UI.WebControls;
 
     public partial class Default : BasePage
     {
@@ -37,13 +35,14 @@
                             select new { Article = article, Author = article.Author });
 
             int skip = (this.CurrentPage - 1) * Default.PageSize;
-            if (skip < 0)
+            int rowCount = 0;
+            if (skip >= 0)
             {
-                throw new InvalidOperationException();
-            }
+                this.ArticleRepeater.DataSource = articles.Skip(skip).Take(Default.PageSize).ToList();
+                this.ArticleRepeater.DataBind();
 
-            this.ArticleRepeater.DataSource = articles.Skip(skip).Take(Default.PageSize).ToList();
-            this.ArticleRepeater.DataBind();
+                rowCount = articles.Count();
+            }
 
             this.ArticlePaging.Text = "";
 
@@ -56,7 +55,6 @@
                 this.ArticlePaging.Text += "<li class=\"disabled\"><span>&laquo;</span></li>";
             }
 
-            int rowCount = articles.Count();
             int pageCount = rowCount / Default.PageSize;
             if (pageCount <= 0)
             {
