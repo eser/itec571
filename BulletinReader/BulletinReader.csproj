@@ -1131,6 +1131,7 @@
     <Content Include="assets\node_modules\grunt\node_modules\underscore.string\test\test_underscore\vendor\qunit.js" />
     <Content Include="assets\node_modules\grunt\node_modules\underscore.string\test\underscore.js" />
     <Content Include="assets\node_modules\grunt\node_modules\which\which.js" />
+    <Content Include="Author.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Global.asax" />
@@ -1803,6 +1804,13 @@
     <Compile Include="DataClasses\Author.cs" />
     <Compile Include="DataClasses\DbContextMain.cs" />
     <Compile Include="DataClasses\DbContextMainInitializer.cs" />
+    <Compile Include="Author.aspx.cs">
+      <DependentUpon>Author.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Author.aspx.designer.cs">
+      <DependentUpon>Author.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
