@@ -9,8 +9,7 @@
         {
             var settings = new FriendlyUrlSettings()
             {
-                AutoRedirectMode = RedirectMode.Permanent,
-                ResolverCachingMode = ResolverCachingMode.Dynamic
+                AutoRedirectMode = RedirectMode.Permanent
             };
 
             routes.EnableFriendlyUrls(settings);

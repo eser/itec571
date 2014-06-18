@@ -5,6 +5,7 @@
     using System.Web.UI;
     using BulletinReader.DataClasses;
     using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.FriendlyUrls;
 
     public partial class Layout : MasterPage
     {

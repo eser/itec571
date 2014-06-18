@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BulletinReader.Register" MasterPageFile="~/Layout.Master" %>
+<%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Register</title>

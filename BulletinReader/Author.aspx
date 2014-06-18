@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Author.aspx.cs" Inherits="BulletinReader.Author" MasterPageFile="~/Layout.Master" %>
+<%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Browse</title>
@@ -24,7 +25,7 @@
                                 <em><%# Eval("Article.Review") %></em></a>
                             </p>
                             <div class="pull-right">
-                                <a href="Purchase?id=<%# Eval("Article.ArticleId") %>" class="btn btn-default btn-sm" role="button">Purchase</a>
+                                <a href="<%# FriendlyUrl.Href("~/Purchase", Eval("Article.ArticleId")) %>" class="btn btn-default btn-sm" role="button">Purchase</a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

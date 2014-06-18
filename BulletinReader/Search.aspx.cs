@@ -4,6 +4,7 @@
     using System.Linq;
     using BulletinReader.DataClasses;
     using BulletinReader.Utils;
+    using Microsoft.AspNet.FriendlyUrls;
 
     public partial class Search : BasePage
     {
@@ -98,7 +99,7 @@
 
             if (this.CurrentPage > 1)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Search?q={0}&page={1}\">&laquo;</a></li>", this.Query, this.CurrentPage - 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"{0}?q={1}&page={2}\">&laquo;</a></li>", FriendlyUrl.Href("~/Search"), this.Query, this.CurrentPage - 1);
             }
             else
             {
@@ -120,12 +121,12 @@
                     addClass = " class=\"active\"";
                 }
 
-                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"Search?q={1}&page={2}\">{2}</a></li>", addClass, this.Query, i);
+                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"{1}?q={2}&page={3}\">{3}</a></li>", addClass, FriendlyUrl.Href("~/Search"), this.Query, i);
             }
 
             if (this.CurrentPage < pageCount)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Search?q={0}&page={1}\">&raquo;</a></li>", this.Query, this.CurrentPage + 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"{0}?q={1}&page={2}\">&raquo;</a></li>", FriendlyUrl.Href("~/Search"), this.Query, this.CurrentPage + 1);
             }
             else
             {

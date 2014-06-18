@@ -1,9 +1,12 @@
 ﻿namespace BulletinReader
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
     using BulletinReader.DataClasses;
     using BulletinReader.Utils;
+    using Microsoft.AspNet.FriendlyUrls;
     using AuthorDataClass = BulletinReader.DataClasses.Author;
 
     public partial class Author : BasePage
@@ -31,6 +34,7 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             Guid authorGuid;
             if (string.IsNullOrWhiteSpace(this.Request.QueryString["id"]) || !Guid.TryParse(this.Request.QueryString["id"], out authorGuid) || authorGuid == Guid.Empty)
             {
@@ -40,8 +44,20 @@
             var authors = (from author in Global.Instance.DbContextMain.Authors
                            where author.AuthorId == authorGuid
                            select author);
+            */
 
-            this.AuthorEntity = authors.FirstOrDefault();
+            List<string> segments = new List<string>(this.Request.GetFriendlyUrlSegments());
+            if (segments.Count < 1 || string.IsNullOrWhiteSpace(segments[0]))
+            {
+                // throw new InvalidOperationException();
+            }
+
+            string authorName = HttpUtility.UrlDecode(segments[0]);
+            var authors = (from author in Global.Instance.DbContextMain.Authors
+                           where author.Name == authorName
+                           select author);
+
+            this.AuthorEntity = authors.SingleOrDefault();
 
             if (!this.IsPostBack)
             {
@@ -69,7 +85,7 @@
 
             if (this.CurrentPage > 1)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Author?id={0}&page={1}\">&laquo;</a></li>", this.AuthorEntity.AuthorId, this.CurrentPage - 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"{0}?page={1}\">&laquo;</a></li>", FriendlyUrl.Href("~/Author", this.AuthorEntity.Name), this.CurrentPage - 1);
             }
             else
             {
@@ -91,12 +107,12 @@
                     addClass = " class=\"active\"";
                 }
 
-                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"Author?id={1}&page={2}\">{2}</a></li>", addClass, this.AuthorEntity.AuthorId, i);
+                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"{1}?page={2}\">{2}</a></li>", addClass, FriendlyUrl.Href("~/Author", this.AuthorEntity.Name), i);
             }
 
             if (this.CurrentPage < pageCount)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Author?id={0}&page={1}\">&raquo;</a></li>", this.AuthorEntity.AuthorId, this.CurrentPage + 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"{0}?page={1}\">&raquo;</a></li>", FriendlyUrl.Href("~/Author", this.AuthorEntity.Name), this.CurrentPage + 1);
             }
             else
             {
