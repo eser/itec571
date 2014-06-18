@@ -35,14 +35,14 @@
             private set;
         }
 
-        protected string Highlight(string text)
+        protected string Highlight(string text, string addClass = "search-highlight")
         {
             foreach (string keyword in this.Keywords)
             {
                 text = StringHelper.Replace(
                     text,
                     keyword,
-                    found => string.Format("<span class=\"search-highlight\">{0}</span>", found),
+                    found => string.Format("<span class=\"{0}\">{1}</span>", addClass, found),
                     StringComparison.CurrentCultureIgnoreCase
                 );
             }
@@ -78,7 +78,7 @@
             foreach (string keyword in this.Keywords)
             {
                 string temp = keyword;
-                predicate = predicate.Or(p => p.Title.Contains(temp) || p.Review.Contains(temp));
+                predicate = predicate.Or(p => p.Title.Contains(temp) || p.Review.Contains(temp) || p.Author.Name.Contains(temp));
             }
 
             var articles = (from article in Global.Instance.DbContextMain.Articles.Where(predicate)

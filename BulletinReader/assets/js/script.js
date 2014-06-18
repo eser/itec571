@@ -38,6 +38,22 @@
         );
     }
 
+    var searchForm = $l('#search-form');
+    if (searchForm !== null) {
+        $l.dom.setEvent(
+            searchForm,
+            'submit',
+            function () {
+                var searchBox = $l('input[name=\'q\']', searchForm);
+
+                if (searchBox !== null && searchBox.value.trim().length === 0) {
+                    searchBox.focus();
+                    return false;
+                }
+            }
+        );
+    }
+
     var logout = $l('#logout');
     if (logout !== null) {
         $l.dom.setEvent(

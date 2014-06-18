@@ -20,12 +20,14 @@
                     <div class="thumbnail">
                         <!-- <img src="<%# Eval("Article.CoverImagePath") %>" alt="<%# Eval("Article.Title") %>" /> -->
                         <div class="caption">
-                            <h3><%# Highlight((string)Eval("Article.Title")) %></h3>
+                            <h3><%# this.Highlight((string)Eval("Article.Title")) %></h3>
                             <p>
-                                <em><%# Highlight((string)Eval("Article.Review")) %></em> - by <a href="<%# FriendlyUrl.Href("~/Author", Eval("Author.Name")) %>"><%# Eval("Author.Name") %></a>
+                                <em><%# this.Highlight((string)Eval("Article.Review")) %></em> - by <a href="<%# FriendlyUrl.Href("~/Author", Eval("Author.Name")) %>"><%# this.Highlight((string)Eval("Author.Name"), "search-highlight-author") %></a>
                             </p>
                             <div class="pull-right">
-                                <a href="<%# FriendlyUrl.Href("~/Purchase", Eval("Article.ArticleId")) %>" class="btn btn-default btn-sm" role="button">Purchase</a>
+                                <a href="<%# FriendlyUrl.Href("~/Purchase", Eval("Article.ArticleId")) %>" class="btn btn-default btn-sm" role="button">
+                                    <%# this.IsAPurchasedItem((Guid)Eval("Article.ArticleId")) ? "Read" : "Purchase" %>
+                                </a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

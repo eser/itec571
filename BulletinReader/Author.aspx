@@ -25,7 +25,9 @@
                                 <em><%# Eval("Article.Review") %></em></a>
                             </p>
                             <div class="pull-right">
-                                <a href="<%# FriendlyUrl.Href("~/Purchase", Eval("Article.ArticleId")) %>" class="btn btn-default btn-sm" role="button">Purchase</a>
+                                <a href="<%# FriendlyUrl.Href("~/Purchase", Eval("Article.ArticleId")) %>" class="btn btn-default btn-sm" role="button">
+                                    <%# this.IsAPurchasedItem((Guid)Eval("Article.ArticleId")) ? "Read" : "Purchase" %>
+                                </a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

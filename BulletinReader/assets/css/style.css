@@ -44,3 +44,9 @@ body {
     color: #fff;
     border-radius: .25em;
 }
+
+.search-highlight-author {
+    background-color: #e0e0e0;
+    padding: .2em .6em .3em;
+    border-radius: .25em;
+}
