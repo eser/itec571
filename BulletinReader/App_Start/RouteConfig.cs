@@ -1,0 +1,21 @@
+﻿namespace BulletinReader
+{
+    using System.Web.Routing;
+    using Microsoft.AspNet.FriendlyUrls;
+
+    public static class RouteConfig
+    {
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            var settings = new FriendlyUrlSettings()
+            {
+                AutoRedirectMode = RedirectMode.Permanent,
+                ResolverCachingMode = ResolverCachingMode.Dynamic
+            };
+
+            routes.EnableFriendlyUrls(settings);
+
+            //routes.MapPageRoute("Default", "Default", "~/Default.aspx");
+        }
+    }
+}

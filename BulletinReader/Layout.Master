@@ -32,7 +32,7 @@
                     <li><a href="./">Browse</a></li>
                     <li><a href="#">Link</a></li>
                 </ul>
-                <form class="navbar-form navbar-left navbar-input-group" method="GET" action="Search.aspx" role="search">
+                <form class="navbar-form navbar-left navbar-input-group" method="GET" action="Search" role="search">
                     <div class="form-group">
                         <input class="form-control" name="q" type="text" placeholder="Enter keyword(s) to find" value="<%= this.SearchBoxText %>" />
                         <button type="submit" class="btn"><span class="glyphicon glyphicon-search" title="Search"></span></button>
@@ -53,7 +53,7 @@
                                     <input id="login-password" class="form-control" name="password" type="password" placeholder="Password" />
                                 </div>
                                 <div class="pull-right">
-                                    <a href="Register.aspx" class="btn btn-default">Register</a>
+                                    <a href="Register" class="btn btn-default">Register</a>
                                     <button type="submit" class="btn btn-primary navbar-btn">Login</button>
                                 </div>
                             </form>
@@ -63,9 +63,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= this.LoggedUser.UserName %> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="PurchasedItems.aspx">Purchased Items</a></li>
+                            <li><a href="PurchasedItems">Purchased Items</a></li>
                             <% if (HttpContext.Current.User.IsInRole("admins")) { %>
-                            <li><a href="AdminConfirmation.aspx">Admin: Confirmation</a></li>
+                            <li><a href="AdminConfirmation">Admin: Confirmation</a></li>
                             <% } %>
                             <li class="divider"></li>
                             <li><a id="logout" href="#">Logout</a></li>

@@ -98,7 +98,7 @@
 
             if (this.CurrentPage > 1)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Search.aspx?q={0}&page={1}\">&laquo;</a></li>", this.Query, this.CurrentPage - 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"Search?q={0}&page={1}\">&laquo;</a></li>", this.Query, this.CurrentPage - 1);
             }
             else
             {
@@ -120,12 +120,12 @@
                     addClass = " class=\"active\"";
                 }
 
-                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"Search.aspx?q={1}&page={2}\">{2}</a></li>", addClass, this.Query, i);
+                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"Search?q={1}&page={2}\">{2}</a></li>", addClass, this.Query, i);
             }
 
             if (this.CurrentPage < pageCount)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Search.aspx?q={0}&page={1}\">&raquo;</a></li>", this.Query, this.CurrentPage + 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"Search?q={0}&page={1}\">&raquo;</a></li>", this.Query, this.CurrentPage + 1);
             }
             else
             {

@@ -69,7 +69,7 @@
 
             if (this.CurrentPage > 1)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Author.aspx?id={0}&page={1}\">&laquo;</a></li>", this.AuthorEntity.AuthorId, this.CurrentPage - 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"Author?id={0}&page={1}\">&laquo;</a></li>", this.AuthorEntity.AuthorId, this.CurrentPage - 1);
             }
             else
             {
@@ -91,12 +91,12 @@
                     addClass = " class=\"active\"";
                 }
 
-                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"Author.aspx?id={1}&page={2}\">{2}</a></li>", addClass, this.AuthorEntity.AuthorId, i);
+                this.ArticlePaging.Text += string.Format("<li{0}><a href=\"Author?id={1}&page={2}\">{2}</a></li>", addClass, this.AuthorEntity.AuthorId, i);
             }
 
             if (this.CurrentPage < pageCount)
             {
-                this.ArticlePaging.Text += string.Format("<li><a href=\"Author.aspx?id={0}&page={1}\">&raquo;</a></li>", this.AuthorEntity.AuthorId, this.CurrentPage + 1);
+                this.ArticlePaging.Text += string.Format("<li><a href=\"Author?id={0}&page={1}\">&raquo;</a></li>", this.AuthorEntity.AuthorId, this.CurrentPage + 1);
             }
             else
             {

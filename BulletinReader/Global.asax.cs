@@ -5,6 +5,7 @@
     using System.Data.Entity;
     using System.Web;
     using System.Web.Http;
+    using System.Web.Routing;
     using BulletinReader.DataClasses;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -30,17 +31,9 @@
             this.UserStore = new UserStore<User>(this.DbContextMain);
             this.UserManager = new UserManager<User>(this.UserStore);
 
-            GlobalConfiguration.Configure(
-                config =>
-                {
-                    config.MapHttpAttributeRoutes();
-                    config.Routes.MapHttpRoute(
-                        name: "DefaultApi",
-                        routeTemplate: "api/{controller}/{id}",
-                        defaults: new { id = RouteParameter.Optional }
-                    );
-                }
-            );
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            // BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -24,7 +24,7 @@
                                 <em><%# Eval("Article.Review") %></em></a>
                             </p>
                             <div class="pull-right">
-                                <a href="Purchase.aspx?id=<%# Eval("Article.ArticleId") %>" class="btn btn-default btn-sm" role="button">Purchase</a>
+                                <a href="Purchase?id=<%# Eval("Article.ArticleId") %>" class="btn btn-default btn-sm" role="button">Purchase</a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

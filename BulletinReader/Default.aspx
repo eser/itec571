@@ -21,10 +21,10 @@
                         <div class="caption">
                             <h3><%# Eval("Article.Title") %></h3>
                             <p>
-                                <em><%# Eval("Article.Review") %></em> - by <a href="Author.aspx?id=<%# Eval("Author.AuthorId") %>"><%# Eval("Author.Name") %></a>
+                                <em><%# Eval("Article.Review") %></em> - by <a href="Author?id=<%# Eval("Author.AuthorId") %>"><%# Eval("Author.Name") %></a>
                             </p>
                             <div class="pull-right">
-                                <a href="Purchase.aspx?id=<%# Eval("Article.ArticleId") %>" class="btn btn-default btn-sm" role="button">Purchase</a>
+                                <a href="Purchase?id=<%# Eval("Article.ArticleId") %>" class="btn btn-default btn-sm" role="button">Purchase</a>
                             </div>
                             <div class="clearfix"></div>
                         </div>
