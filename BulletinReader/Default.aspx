@@ -1,8 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BulletinReader.Default" MasterPageFile="~/Layout.Master" Async="true" %>
+﻿<%@ Page Title="Browse" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BulletinReader.Default" MasterPageFile="~/Layout.Master" Async="true" %>
 <%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Browse</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">

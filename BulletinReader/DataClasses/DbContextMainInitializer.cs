@@ -28,7 +28,7 @@
             UserStore<User> userStore = new UserStore<User>(dbContext);
             UserManager<User> userManager = new UserManager<User>(userStore);
 
-            User userAdmin = new User() { UserName = "admin", Email = "eser@sent.com", EmailConfirmed = true };
+            User userAdmin = new User() { UserName = "admin", Email = "eser@sent.com", Fullname = "Eser Ozvataf", EmailConfirmed = true };
             IdentityResult userAdminResult = userManager.Create(userAdmin, "123456");
             userManager.AddToRole(userAdmin.Id, userRoleAdmin.Name);
 

@@ -30,7 +30,13 @@
                            where article.Title == articleName
                            select article);
 
-            this.ArticleEntity = articles.SingleOrDefault();
+            this.ArticleEntity = articles.FirstOrDefault();
+            if (this.ArticleEntity == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            this.Title = string.Format("Article: {0}", this.ArticleEntity.Title);
 
             PurchasedItem purchasedItem = this.GetPurchasedItem(this.ArticleEntity.ArticleId);
 
@@ -43,7 +49,7 @@
                 if (this.LoggedUser == null)
                 {
                     this.btnPurchaseButton.Disabled = true;
-                    this.SetNotification("info", "Information", "You have to be logged in before reading or purchasing an article.");
+                    this.AddNotification("info", "Information", "You have to be logged in before reading or purchasing an article.");
                 }
             }
             else if (purchasedItem.Status == PurchasedItemStatus.NotConfirmed)

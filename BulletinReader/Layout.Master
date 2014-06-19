@@ -5,15 +5,19 @@
 
 <html lang="en">
 <head runat="server">
-    <script src="<%: ResolveClientUrl("~/assets/js/bulletin-reader.min.js") %>"></script>
-    <link rel="stylesheet" href="<%: ResolveClientUrl("~/assets/css/bulletin-reader.min.css") %>" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: this.Page.Title %> - BulletinReader</title>
+
+    <script src="<%: this.ResolveClientUrl("~/assets/js/bulletin-reader.min.js") %>"></script>
+    <link rel="stylesheet" href="<%: this.ResolveClientUrl("~/assets/css/bulletin-reader.min.css") %>" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <script>
-        $l.contentBegin('main', '<%= ResolveClientUrl("~/") %>');
+        $l.contentBegin('main', '<%= this.ResolveClientUrl("~/") %>');
     </script>
 
     <nav class="navbar navbar-default" role="navigation">

@@ -57,7 +57,13 @@
                            where author.Name == authorName
                            select author);
 
-            this.AuthorEntity = authors.SingleOrDefault();
+            this.AuthorEntity = authors.FirstOrDefault();
+            if (this.AuthorEntity == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            this.Title = string.Format("Author: {0}", this.AuthorEntity.Name);
 
             if (!this.IsPostBack)
             {

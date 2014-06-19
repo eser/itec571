@@ -34,15 +34,16 @@
         {
             base.OnLoad(e);
 
-            if (this.Session["Notification"] != null)
+            Literal notificationArea = this.FindControlRecursive<Literal>("NotificationArea");
+            if (notificationArea != null && this.Session["Notification"] != null)
             {
-                Literal notificationArea = this.FindControlRecursive<Literal>("NotificationArea");
-                if (notificationArea != null)
-                {
-                    notificationArea.Text = this.GetNotification();
+                notificationArea.Text = this.GetNotification();
 
-                    this.Session.Remove("Notification");
-                }
+                this.Session.Remove("Notification");
+            }
+            else
+            {
+                notificationArea.Text = string.Empty;
             }
         }
 
@@ -100,7 +101,7 @@
             return "<div class=\"alert alert-" + type + " alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button> <strong>" + title + "</strong> " + message.Replace(Environment.NewLine, "<br />") + "</div>";
         }
 
-        protected void SetNotification(string type, string title, string message)
+        protected void AddNotification(string type, string title, string message)
         {
             string[][] oldValue = this.Session["Notification"] as string[][];
             if (oldValue == null)
@@ -113,6 +114,15 @@
             oldValue[length] = new string[] { type, title, message };
 
             this.Session["Notification"] = oldValue;
+        }
+
+        protected void AddFormNotification(string type, string title, string message)
+        {
+            Literal notificationArea = this.FindControlRecursive<Literal>("NotificationArea");
+            if (notificationArea != null)
+            {
+                notificationArea.Text += this.ConstructAlertMessage(type, title, message);
+            }
         }
 
         public string GetNotification()

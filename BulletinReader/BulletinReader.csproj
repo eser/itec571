@@ -1136,6 +1136,8 @@
     <Content Include="assets\node_modules\grunt\node_modules\which\which.js" />
     <Content Include="Article.aspx" />
     <Content Include="Author.aspx" />
+    <Content Include="PurchasedItems.aspx" />
+    <Content Include="EditProfile.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Global.asax" />
@@ -1823,6 +1825,20 @@
     </Compile>
     <Compile Include="Author.aspx.designer.cs">
       <DependentUpon>Author.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasedItems.aspx.cs">
+      <DependentUpon>PurchasedItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchasedItems.aspx.designer.cs">
+      <DependentUpon>PurchasedItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>

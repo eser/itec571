@@ -20,6 +20,13 @@
                 return;
             }
 
+            UserDataClass previousUser = Global.Instance.UserManager.FindByEmail(this.txtEmail.Text);
+            if (previousUser != null)
+            {
+                this.AddFormNotification("danger", "Error", string.Format("E-mail '{0}' is already taken.", this.txtEmail.Text));
+                return;
+            }
+
             UserDataClass user = new UserDataClass() {
                 UserName = this.txtUsername.Text,
                 Fullname = this.txtFullname.Text,
@@ -45,14 +52,14 @@
                     userIdentity
                 );
 
-                this.SetNotification("success", "Welcome", string.Format("{0}, your registration is successfully completed.", user.Fullname));
+                this.AddNotification("success", "Welcome", string.Format("{0}, your registration is successfully completed.", user.Fullname));
                 this.Response.Redirect("~/", false);
                 this.Context.ApplicationInstance.CompleteRequest();
 
                 return;
             }
 
-            this.SetNotification("danger", "Error", string.Join(Environment.NewLine, userResult.Errors));
+            this.AddFormNotification("danger", "Error", string.Join(Environment.NewLine, userResult.Errors));
         }
     }
 }

@@ -58,16 +58,18 @@
             {
                 this.Keywords = this.Query.ToLower().Split(new char[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
                 this.Query = string.Join(" ", this.Keywords);
+
+                this.Title = string.Format("Search: {0}", this.Query);
+
+                if (!this.IsPostBack)
+                {
+                    this.FetchData();
+                }
             }
             else
             {
                 this.Keywords = new string[0];
                 this.Query = string.Empty;
-            }
-
-            if (!this.IsPostBack)
-            {
-                this.FetchData();
             }
         }
 
