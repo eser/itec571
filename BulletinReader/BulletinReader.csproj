@@ -111,7 +111,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ArticlesEdit.aspx" />
+    <Content Include="Admin\ArticlesAdd.aspx" />
     <Content Include="Admin\Authors.aspx" />
+    <Content Include="Admin\Articles.aspx" />
+    <Content Include="Admin\Users.aspx" />
     <Content Include="Admin\Purchases.aspx" />
     <Content Include="App_Data\DbMain.mdf" />
     <Content Include="App_Data\DbMain_log.ldf">
@@ -1139,6 +1143,9 @@
     <Content Include="assets\node_modules\grunt\node_modules\which\which.js" />
     <Content Include="Article.aspx" />
     <Content Include="Author.aspx" />
+    <Content Include="Uploads\test1.jpg" />
+    <Content Include="Uploads\test2.jpg" />
+    <Content Include="Uploads\test3.jpg" />
     <Content Include="Users\PurchasedItems.aspx" />
     <Content Include="Users\EditProfile.aspx" />
     <Content Include="Search.aspx" />
@@ -1793,12 +1800,40 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ArticlesEdit.aspx.cs">
+      <DependentUpon>ArticlesEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ArticlesEdit.aspx.designer.cs">
+      <DependentUpon>ArticlesEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ArticlesAdd.aspx.cs">
+      <DependentUpon>ArticlesAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ArticlesAdd.aspx.designer.cs">
+      <DependentUpon>ArticlesAdd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Authors.aspx.cs">
       <DependentUpon>Authors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Authors.aspx.designer.cs">
       <DependentUpon>Authors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Articles.aspx.cs">
+      <DependentUpon>Articles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Articles.aspx.designer.cs">
+      <DependentUpon>Articles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Purchases.aspx.cs">
       <DependentUpon>Purchases.aspx</DependentUpon>

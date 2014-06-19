@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Search" Language="C#" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="BulletinReader.Search" MasterPageFile="~/Layout.Master" Async="true" %>
 <%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
+<%@ Import Namespace="BulletinReader.DataClasses" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -19,7 +20,7 @@
             <ItemTemplate>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="<%# Eval("CoverImagePath") %>" alt="<%# Eval("Title") %>" class="img-responsive" />
+                        <%# this.GetArticleCover(Container.DataItem as Article) %>
                         <div class="caption">
                             <h3><%# this.Highlight((string)Eval("Title")) %></h3>
                             <p>

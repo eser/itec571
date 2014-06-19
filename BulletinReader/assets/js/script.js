@@ -79,4 +79,17 @@
             }
         );
     }
+
+    var confirmations = $l(['.confirmation']);
+    if (confirmations.length > 0) {
+        $l.dom.setEvent(
+            confirmations,
+            'click',
+            function () {
+                if (!confirm("Are you sure to do this?")) {
+                    return false;
+                }
+            }
+        );
+    }
 });

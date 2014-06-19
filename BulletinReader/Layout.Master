@@ -35,6 +35,10 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="<%: FriendlyUrl.Href("~/") %>">Browse</a></li>
+                    <% if ((this.Page as BulletinReader.BasePage).LoggedUser != null) { %>
+                    <li><a href="<%: FriendlyUrl.Href("~/Users/PurchasedItems") %>">My Items</a></li>
+                    <li><a href="<%: FriendlyUrl.Href("~/Users/EditProfile") %>">Edit Profile</a></li>
+                    <% } %>
                 </ul>
                 <form id="search-form" class="navbar-form navbar-left navbar-input-group" method="GET" action="<%: FriendlyUrl.Href("~/Search") %>" role="search">
                     <div class="form-group">
@@ -91,6 +95,13 @@
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
     </form>
+
+    <div class="container">
+        <hr />
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - <a href="http://eser.ozvataf.com/">Eser Ozvataf</a> - <a href="https://github.com/larukedi/itec571">ITEC571 Term Project</a></p>
+        </footer>
+    </div>
 
     <script>
         $l.contentEnd();

@@ -35,7 +35,7 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Birthdate" ErrorMessage="Please enter a date.">* </asp:RequiredFieldValidator>
                 Birthdate
             </label>
-            <asp:TextBox ID="Birthdate" runat="server" ClientIDMode="Static" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="Birthdate" runat="server" ClientIDMode="Static" CssClass="form-control" TextMode="Date"></asp:TextBox>
         </div>
 
         <asp:Button ID="UpdateButton" runat="server" Text="Update" CssClass="btn btn-primary" OnClick="UpdateButton_Click" />

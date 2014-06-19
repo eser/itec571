@@ -20,7 +20,6 @@
             string oldValue = this.Author.SelectedValue;
 
             this.Author.Items.Clear();
-
             this.Author.Items.Add(new ListItem("(New Record)", "0"));
 
             var authors = (from author in Global.Instance.DbContextMain.Authors

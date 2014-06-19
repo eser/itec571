@@ -51,9 +51,9 @@
                     Title = "Test Article I",
                     Review = "first review for a test article",
                     Content = "",
-                    CoverImagePath = null,
+                    CoverImagePath = "test1.jpg",
                     PublishDate = new DateTime(2012, 12, 12, 12, 12, 12),
-                    StoreDate = DateTime.UtcNow
+                    StoreDate = DateTime.UtcNow,
                 },
 
                 new Article() {
@@ -62,7 +62,7 @@
                     Title = "Test Article II",
                     Review = "second review for another test article",
                     Content = "",
-                    CoverImagePath = null,
+                    CoverImagePath = "test2.jpg",
                     PublishDate = new DateTime(2013, 1, 1, 15, 0, 0),
                     StoreDate = DateTime.UtcNow
                 },
@@ -74,7 +74,7 @@
                     Title = "Test Article III",
                     Review = "second review for an another test article",
                     Content = "",
-                    CoverImagePath = null,
+                    CoverImagePath = "test3.jpg",
                     PublishDate = new DateTime(2014, 4, 16, 6, 30, 0),
                     StoreDate = DateTime.UtcNow
                 }

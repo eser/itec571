@@ -14,7 +14,7 @@
 
         <div class="row">
             <div class="col-md-3 col-lg-3 text-center">
-                <img src="<%: this.ArticleEntity.CoverImagePath %>" alt="<%: this.ArticleEntity.Title %>" class="img-responsive" />
+                <%= this.GetArticleCover(this.ArticleEntity) %>
             </div>
 
             <div class=" col-md-9 col-lg-9">

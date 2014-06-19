@@ -9,7 +9,9 @@
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using BulletinReader.DataClasses;
+    using Microsoft.AspNet.FriendlyUrls;
     using Microsoft.AspNet.Identity;
+    using ArticleDataClass = BulletinReader.DataClasses.Article;
 
     public class BasePage : Page
     {
@@ -163,6 +165,20 @@
             }
 
             return null;
+        }
+
+        public string GetArticleCover(ArticleDataClass article)
+        {
+            if (string.IsNullOrWhiteSpace(article.CoverImagePath))
+            {
+                return string.Empty;
+            }
+
+            return string.Format(
+                "<img src=\"{0}\" alt=\"{1}\" class=\"img-responsive\" />",
+                FriendlyUrl.Href("~/Uploads/" + article.CoverImagePath),
+                article.Title
+            );
         }
     }
 }
