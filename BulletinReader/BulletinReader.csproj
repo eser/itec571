@@ -124,6 +124,7 @@
     <Content Include="assets\css\font-awesome.css" />
     <Content Include="assets\css\fonts.css" />
     <Content Include="assets\css\laroux.ui.css" />
+    <Content Include="Admin\Web.config" />
     <None Include="assets\less\style.less" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
@@ -1888,7 +1889,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="App_GlobalResources\" />
   </ItemGroup>
   <ItemGroup>
