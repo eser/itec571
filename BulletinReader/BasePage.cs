@@ -14,10 +14,16 @@
         public BasePage()
             : base()
         {
-            this.LoggedUser = Global.Instance.UserManager.FindById(this.User.Identity.GetUserId());
         }
 
         public User LoggedUser { get; set; }
+
+        protected override async void OnPreLoad(EventArgs e)
+        {
+            base.OnPreLoad(e);
+
+            this.LoggedUser = await Global.Instance.UserManager.FindByIdAsync(this.User.Identity.GetUserId());
+        }
 
         protected override void InitializeCulture()
         {

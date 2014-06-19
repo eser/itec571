@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Article.aspx.cs" Inherits="BulletinReader.Article" MasterPageFile="~/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Article.aspx.cs" Inherits="BulletinReader.Article" MasterPageFile="~/Layout.Master" Async="true" %>
 
 <%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
@@ -58,6 +58,12 @@
                         <br />
                         IBAN: TR00 0000 0000 0000 0000-00
                     </p>
+
+                    <div class="pull-right">
+                        <button class="btn btn-primary" runat="server" id="btnCancelButton" onserverclick="btnCancelButton_ServerClick">Cancel</button>
+                    </div>
+
+                    <div class="clearfix"></div>
                 </div>
 
                 <div runat="server" ID="ltrContent">

@@ -79,5 +79,24 @@
             this.ltrPaymentNotice.Visible = true;
             this.ltrContent.Visible = false;
         }
+
+        protected void btnCancelButton_ServerClick(object sender, EventArgs e)
+        {
+            PurchasedItem purchasedItem = this.GetPurchasedItem(this.ArticleEntity.ArticleId);
+
+            if (purchasedItem == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            Global.Instance.DbContextMain.PurchasedItems.Remove(purchasedItem);
+            Global.Instance.DbContextMain.SaveChanges();
+
+            this.Session["purchasedItems"] = null;
+
+            this.btnPurchaseButton.Visible = true;
+            this.ltrPaymentNotice.Visible = false;
+            this.ltrContent.Visible = false;
+        }
     }
 }
