@@ -11,6 +11,8 @@
             <h1>Author <small><%= this.AuthorEntity.Name %></small></h1>
         </div>
 
+        <asp:Literal ID="NotificationArea" runat="server" />
+
         <asp:Repeater ID="ArticleRepeater" runat="server">
             <HeaderTemplate>
                 <div class="row">

@@ -11,6 +11,8 @@
             <h1>Search <small><%= this.Query %></small></h1>
         </div>
 
+        <asp:Literal ID="NotificationArea" runat="server" />
+
         <asp:Repeater ID="ArticleRepeater" runat="server">
             <HeaderTemplate>
                 <div class="row">

@@ -4,5 +4,7 @@
 
     public class User : IdentityUser
     {
+        public string Fullname { get; set; }
+        public string Address { get; set; }
     }
 }

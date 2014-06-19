@@ -12,6 +12,8 @@
             <h1>Article <small><%= this.ArticleEntity.Title %> - by <a href="<%: FriendlyUrl.Href("~/Author", this.ArticleEntity.Author.Name) %>"><%= this.ArticleEntity.Author.Name %></a></small></h1>
         </div>
 
+        <asp:Literal ID="NotificationArea" runat="server" />
+
         <div class="row">
             <div class="col-md-3 col-lg-3 text-center">
                 <img src="<%: this.ArticleEntity.CoverImagePath %>" alt="<%: this.ArticleEntity.Title %>" class="img-responsive" />

@@ -7,6 +7,7 @@
     using BulletinReader.Api.Classes;
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;
+    using UserDataClass = BulletinReader.DataClasses.User;
 
     [RoutePrefix("api/gate")]
     public class GateController : ApiController
@@ -14,7 +15,16 @@
         [Route("login")]
         public LoginResponse PostLogin([FromBody]LoginRequest loginRequest)
         {
-            var user = Global.Instance.UserManager.FindByEmail(loginRequest.Email);
+            UserDataClass user;
+
+            if (loginRequest.Email.Contains("@"))
+            {
+                user = Global.Instance.UserManager.FindByEmail(loginRequest.Email);
+            }
+            else
+            {
+                user = Global.Instance.UserManager.FindByName(loginRequest.Email);
+            }
 
             if (user == null)
             {

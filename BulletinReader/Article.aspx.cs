@@ -43,6 +43,7 @@
                 if (this.LoggedUser == null)
                 {
                     this.btnPurchaseButton.Disabled = true;
+                    this.SetNotification("info", "Information", "You have to be logged in before reading or purchasing an article.");
                 }
             }
             else if (purchasedItem.Status == PurchasedItemStatus.NotConfirmed)
@@ -67,7 +68,7 @@
                 ArticleId = this.ArticleEntity.ArticleId,
                 Status = PurchasedItemStatus.NotConfirmed,
                 TransactionDate = DateTime.UtcNow,
-                UserId = HttpContext.Current.User.Identity.GetUserId()
+                UserId = this.User.Identity.GetUserId()
             };
 
             Global.Instance.DbContextMain.PurchasedItems.Add(purchasedItem);
