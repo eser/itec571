@@ -14380,6 +14380,17 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 })(this.laroux);
 ;$l.ready(function () {
+    var pageReload = function () {
+        var url = location.toString();
+        if (url.match('#')) {
+            var url_splitted = url.split('#');
+            // gotoTab(url_splitted[1]);
+            url = url_splitted[0];
+        }
+
+        location.href = url;
+    };
+
     $('.input-group.date').datepicker({
         format: 'dd.mm.yyyy',
         startDate: '-1d',
@@ -14406,14 +14417,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                     },
                     function (x) {
                         if (x.success) {
-                            var url = location.toString();
-                            if (url.match('#')) {
-                                var url_splitted = url.split('#');
-                                // gotoTab(url_splitted[1]);
-                                url = url_splitted[0];
-                            }
-
-                            location.href = url;
+                            pageReload();
                             return;
                         }
 
@@ -14470,6 +14474,20 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                 if (!confirm("Are you sure to do this?")) {
                     return false;
                 }
+            }
+        );
+    }
+
+    var languagebox = $l('#languagebox');
+    if (languagebox !== null) {
+        $l.dom.setEvent(
+            languagebox,
+            'change',
+            function () {
+                $l.cookies.set('CurrentLanguage', languagebox.value);
+                pageReload();
+
+                return false;
             }
         );
     }

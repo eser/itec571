@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: this.Page.Title %> - BulletinReader</title>
+    <title><%: this.Page.Title %> - <%: Resources.Literals.BulletinReader %></title>
 
     <script src="<%: this.ResolveClientUrl("~/assets/js/bulletin-reader.min.js") %>"></script>
     <link rel="stylesheet" href="<%: this.ResolveClientUrl("~/assets/css/bulletin-reader.min.css") %>" />
@@ -29,41 +29,41 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<%: FriendlyUrl.Href("~/") %>">BulletinReader</a>
+                <a class="navbar-brand" href="<%: FriendlyUrl.Href("~/") %>"><%: Resources.Literals.BulletinReader %></a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="<%: FriendlyUrl.Href("~/") %>">Browse</a></li>
+                    <li><a href="<%: FriendlyUrl.Href("~/") %>"><%: Resources.Literals.Browse %></a></li>
                     <% if ((this.Page as BulletinReader.BasePage).LoggedUser != null) { %>
-                    <li><a href="<%: FriendlyUrl.Href("~/Users/PurchasedItems") %>">My Items</a></li>
-                    <li><a href="<%: FriendlyUrl.Href("~/Users/EditProfile") %>">Edit Profile</a></li>
+                    <li><a href="<%: FriendlyUrl.Href("~/Users/PurchasedItems") %>"><%: Resources.Literals.MyItems %></a></li>
+                    <li><a href="<%: FriendlyUrl.Href("~/Users/EditProfile") %>"><%: Resources.Literals.EditProfile %></a></li>
                     <% } %>
                 </ul>
                 <form id="search-form" class="navbar-form navbar-left navbar-input-group" method="GET" action="<%: FriendlyUrl.Href("~/Search") %>" role="search">
                     <div class="form-group">
-                        <input class="form-control" name="q" type="text" placeholder="Enter keyword(s) to find" value="<%: this.SearchBoxText %>" />
-                        <button type="submit" class="btn"><span class="glyphicon glyphicon-search" title="Search"></span></button>
+                        <input class="form-control" name="q" type="text" placeholder="<%: Resources.Literals.EnterKeywordsToFind %>" value="<%: this.SearchBoxText %>" />
+                        <button type="submit" class="btn"><span class="glyphicon glyphicon-search" title="<%: Resources.Literals.Search %>"></span></button>
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <% if ((this.Page as BulletinReader.BasePage).LoggedUser == null) { %>
-                    <li><a href="<%: FriendlyUrl.Href("~/Register") %>">Register</a></li>
+                    <li><a href="<%: FriendlyUrl.Href("~/Register") %>"><%: Resources.Literals.Register %></a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%: Resources.Literals.Login %></a>
                         <div class="dropdown-menu dropdown-menu-custom">
                             <form id="form-login" class="form" method="POST" action="/api/login">
                                 <div class="form-group">
-                                    <label for="login-email">E-mail</label>
-                                    <input id="login-email" class="form-control" name="email" type="text" placeholder="E-mail" />
+                                    <label for="login-email"><%: Resources.Literals.Email %></label>
+                                    <input id="login-email" class="form-control" name="email" type="text" placeholder="<%: Resources.Literals.Email %>" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="login-password">Password</label>
-                                    <input id="login-password" class="form-control" name="password" type="password" placeholder="Password" />
+                                    <label for="login-password"><%: Resources.Literals.Password %></label>
+                                    <input id="login-password" class="form-control" name="password" type="password" placeholder="<%: Resources.Literals.Password %>" />
                                 </div>
                                 <div class="pull-right">
-                                    <a href="Register" class="btn btn-default">Register</a>
-                                    <button type="submit" class="btn btn-primary navbar-btn">Login</button>
+                                    <a href="Register" class="btn btn-default"><%: Resources.Literals.Register %></a>
+                                    <button type="submit" class="btn btn-primary navbar-btn"><%: Resources.Literals.Login %></button>
                                 </div>
                             </form>
                         </div>
@@ -72,17 +72,17 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= (this.Page as BulletinReader.BasePage).LoggedUser.UserName %> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<%: FriendlyUrl.Href("~/Users/PurchasedItems") %>">Purchased Items</a></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/Users/EditProfile") %>">Edit My Profile</a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Users/PurchasedItems") %>"><%: Resources.Literals.PurchasedItems %></a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Users/EditProfile") %>"><%: Resources.Literals.EditMyProfile %></a></li>
                             <% if (this.Page.User.IsInRole("admins")) { %>
                             <li class="divider"></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Authors") %>">Manage Authors</a></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Articles") %>">Manage Articles</a></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Purchases") %>">Manage Purchases</a></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Users") %>">Manage Users</a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Authors") %>"><%: Resources.Literals.ManageAuthors %></a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Articles") %>"><%: Resources.Literals.ManageArticles %></a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Purchases") %>"><%: Resources.Literals.ManagePurchases %></a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Users") %>"><%: Resources.Literals.ManageUsers %></a></li>
                             <% } %>
                             <li class="divider"></li>
-                            <li><a id="logout" href="#">Logout</a></li>
+                            <li><a id="logout" href="#"><%: Resources.Literals.Logout %></a></li>
                         </ul>
                     </li>
                     <% } %>
@@ -94,14 +94,20 @@
     <form id="form1" runat="server">
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder>
-    </form>
 
-    <div class="container">
-        <hr />
-        <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - <a href="http://eser.ozvataf.com/">Eser Ozvataf</a> - <a href="https://github.com/larukedi/itec571">ITEC571 Term Project</a></p>
-        </footer>
-    </div>
+        <div class="container">
+            <hr />
+            <footer>
+                <div class="row">
+                    <div class="col-md-8">
+                        &copy; <%: DateTime.Now.Year %> - <a href="http://eser.ozvataf.com/">Eser Ozvataf</a> - <a href="https://github.com/larukedi/itec571"><%: Resources.Literals.ITEC571TermProject %></a>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <asp:DropDownList ID="languagebox" ClientIDMode="Static" runat="server" CssClass="form-control" AutoPostBack="true" />
+                    </div>
+            </footer>
+        </div>
+    </form>
 
     <script>
         $l.contentEnd();

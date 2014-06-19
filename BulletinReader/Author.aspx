@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Author" Language="C#" AutoEventWireup="true" CodeBehind="Author.aspx.cs" Inherits="BulletinReader.Author" MasterPageFile="~/Layout.Master" Async="true" %>
 <%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <%@ Import Namespace="BulletinReader.DataClasses" %>
+<%@ Import Namespace="Resources" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -28,7 +29,7 @@
                             </p>
                             <div class="pull-right">
                                 <a href="<%# FriendlyUrl.Href("~/Article", Eval("Title")) %>" class="btn btn-default btn-sm" role="button">
-                                    <%# this.GetPurchasedItem((Guid)Eval("ArticleId")) != null ? "Read" : "Purchase" %>
+                                    <%# this.GetPurchasedItem((Guid)Eval("ArticleId")) != null ? "Purchase" : "Read" %>
                                 </a>
                             </div>
                             <div class="clearfix"></div>

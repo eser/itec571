@@ -1853,6 +1853,16 @@
     <Compile Include="Api\Classes\LogoutResponse.cs" />
     <Compile Include="Api\Classes\LoginResponse.cs" />
     <Compile Include="Api\Classes\LoginRequest.cs" />
+    <Compile Include="App_GlobalResources\Literals.tr-TR.designer.cs">
+      <DependentUpon>Literals.tr-TR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Literals.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Literals.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Article.aspx.cs">
@@ -1939,13 +1949,19 @@
       <Name>Tasslehoff.Library</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_GlobalResources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Api\App_LocalResources\ApiLiterals.resx">
       <LastGenOutput>ApiLiterals.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <Content Include="App_GlobalResources\Literals.tr-TR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Literals.tr-TR.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="App_GlobalResources\Literals.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Literals.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

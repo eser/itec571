@@ -1,11 +1,10 @@
 ﻿namespace BulletinReader
 {
     using System;
+    using System.Threading;
     using System.Web;
     using System.Web.UI;
-    using BulletinReader.DataClasses;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.FriendlyUrls;
+    using System.Web.UI.WebControls;
 
     public partial class Layout : MasterPage
     {
@@ -22,6 +21,14 @@
             if (searchPage != null)
             {
                 this.SearchBoxText = searchPage.Query;
+            }
+
+            if (!this.IsPostBack)
+            {
+                this.languagebox.Items.Add(new ListItem("English", "en-US"));
+                this.languagebox.Items.Add(new ListItem("Türkçe", "tr-TR"));
+
+                this.languagebox.SelectedValue = Thread.CurrentThread.CurrentUICulture.Name;
             }
         }
     }
