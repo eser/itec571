@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Edit My Profile" Language="C#" AutoEventWireup="true" CodeBehind="EditProfile.aspx.cs" Inherits="BulletinReader.EditProfile" MasterPageFile="~/Layout.Master" Async="true" %>
+﻿<%@ Page Title="Edit My Profile" Language="C#" AutoEventWireup="true" CodeBehind="EditProfile.aspx.cs" Inherits="BulletinReader.Users.EditProfile" MasterPageFile="~/Layout.Master" Async="true" %>
 <%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

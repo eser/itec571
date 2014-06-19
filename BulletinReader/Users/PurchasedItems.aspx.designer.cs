@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BulletinReader {
+namespace BulletinReader.Users {
     
     
     public partial class PurchasedItems {

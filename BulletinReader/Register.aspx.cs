@@ -41,6 +41,8 @@
 
             if (userResult.Succeeded)
             {
+                await Global.Instance.UserManager.AddToRoleAsync(user.Id, "users");
+
                 ClaimsIdentity userIdentity = await Global.Instance.UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

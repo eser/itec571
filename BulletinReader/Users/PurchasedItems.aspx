@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Purchased Items" Language="C#" AutoEventWireup="true" CodeBehind="PurchasedItems.aspx.cs" Inherits="BulletinReader.PurchasedItems" MasterPageFile="~/Layout.Master" Async="true" %>
+﻿<%@ Page Title="Purchased Items" Language="C#" AutoEventWireup="true" CodeBehind="PurchasedItems.aspx.cs" Inherits="BulletinReader.Users.PurchasedItems" MasterPageFile="~/Layout.Master" Async="true" %>
 <%@ Import Namespace="Microsoft.AspNet.FriendlyUrls" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

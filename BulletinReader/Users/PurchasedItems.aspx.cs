@@ -1,4 +1,4 @@
-﻿namespace BulletinReader
+﻿namespace BulletinReader.Users
 {
     using System;
     using System.Linq;

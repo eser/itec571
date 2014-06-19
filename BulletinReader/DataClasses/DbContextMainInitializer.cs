@@ -22,6 +22,9 @@
             RoleStore<IdentityRole> userRoleStore = new RoleStore<IdentityRole>(dbContext);
             RoleManager<IdentityRole> userRoleManager = new RoleManager<IdentityRole>(userRoleStore);
 
+            IdentityRole userRoleUser = new IdentityRole() { Name = "users" };
+            IdentityResult userRoleUserResult = userRoleManager.Create(userRoleUser);
+
             IdentityRole userRoleAdmin = new IdentityRole() { Name = "admins" };
             IdentityResult userRoleAdminResult = userRoleManager.Create(userRoleAdmin);
 
@@ -31,6 +34,7 @@
             User userAdmin = new User() { UserName = "admin", Email = "eser@sent.com", Fullname = "Eser Ozvataf", EmailConfirmed = true };
             IdentityResult userAdminResult = userManager.Create(userAdmin, "123456");
             userManager.AddToRole(userAdmin.Id, userRoleAdmin.Name);
+            userManager.AddToRole(userAdmin.Id, userRoleUser.Name);
 
             Author authorEser = new Author() { AuthorId = Guid.NewGuid(), Name = "Eser" };
 
