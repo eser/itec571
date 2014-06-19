@@ -3,13 +3,18 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
 
-    [Table("Authors")]
+    [DataContract, Table("Authors")]
     public class Author
     {
-        [Key]
+        [DataMember, Key]
         public Guid AuthorId { get; set; }
 
+        [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
+        public DateTime Birthdate { get; set; }
     }
 }

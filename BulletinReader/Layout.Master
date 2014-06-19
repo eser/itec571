@@ -72,9 +72,10 @@
                             <li><a href="<%: FriendlyUrl.Href("~/Users/EditProfile") %>">Edit My Profile</a></li>
                             <% if (this.Page.User.IsInRole("admins")) { %>
                             <li class="divider"></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/AdminPurchases") %>">Manage Purchases</a></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/AdminArticles") %>">Manage Articles</a></li>
-                            <li><a href="<%: FriendlyUrl.Href("~/AdminUsers") %>">Manage Users</a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Authors") %>">Manage Authors</a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Articles") %>">Manage Articles</a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Purchases") %>">Manage Purchases</a></li>
+                            <li><a href="<%: FriendlyUrl.Href("~/Admin/Users") %>">Manage Users</a></li>
                             <% } %>
                             <li class="divider"></li>
                             <li><a id="logout" href="#">Logout</a></li>

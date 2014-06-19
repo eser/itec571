@@ -12,6 +12,11 @@
             {
                 this.RefillPurchasedItems();
             }
+
+            if (this.GridView.Rows.Count > 0)
+            {
+                this.GridView.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
         }
 
         protected void RefillPurchasedItems()
@@ -24,14 +29,7 @@
             this.GridView.DataSource = purchasedItems.ToList();
             this.GridView.DataBind();
 
-            if (purchasedItems.Count() < 1)
-            {
-                this.NoRecords.Visible = true;
-            }
-            else
-            {
-                this.GridView.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
+            this.NoRecords.Visible = (purchasedItems.Count() < 1);
         }
     }
 }

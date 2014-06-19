@@ -36,7 +36,7 @@
             userManager.AddToRole(userAdmin.Id, userRoleAdmin.Name);
             userManager.AddToRole(userAdmin.Id, userRoleUser.Name);
 
-            Author authorEser = new Author() { AuthorId = Guid.NewGuid(), Name = "Eser" };
+            Author authorEser = new Author() { AuthorId = Guid.NewGuid(), Name = "Eser", Birthdate = new DateTime(1984, 4, 16) };
 
             List<Author> authors = new List<Author>()
             {

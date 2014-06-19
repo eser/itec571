@@ -3,25 +3,30 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
 
-    [Table("PurchasedItems")]
+    [DataContract, Table("PurchasedItems")]
     public class PurchasedItem
     {
-        [Key]
+        [DataMember, Key]
         public Guid PurchasedItemId { get; set; }
 
+        [DataMember]
         public DateTime TransactionDate { get; set; }
 
+        [DataMember]
         public PurchasedItemStatus Status { get; set; }
 
-        [ForeignKey("Article")]
+        [DataMember, ForeignKey("Article")]
         public Guid ArticleId { get; set; }
 
+        [DataMember]
         public virtual Article Article { get; set; }
 
-        [ForeignKey("User")]
+        [DataMember, ForeignKey("User")]
         public string UserId { get; set; }
 
+        [DataMember]
         public virtual User User { get; set; }
     }
 }
