@@ -1,0 +1,64 @@
+::selection {
+    background-color: hsla(0, 0%, 0%, 0.5);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+@media print {
+    .print-hidden {
+        display: none;
+    }
+}
+
+.dropdown-menu-custom {
+    padding: 17px;
+    width: 200px;
+}
+
+.navbar-input-group {
+    font-size: 0px;
+
+    input {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .btn {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-left: 0px;
+    }
+}
+
+.search-highlight {
+    background-color: #f0ad4e;
+    padding: .2em .6em .3em;
+    color: #fff;
+    border-radius: .25em;
+}
+
+.search-highlight-author {
+    background-color: #e0e0e0;
+    padding: .2em .6em .3em;
+    border-radius: .25em;
+}
+
+.table-article-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+
+    &:first-child {
+        border-top: 0;
+    }
+
+    & > td {
+        border-top: 0;
+    }
+}

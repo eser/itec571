@@ -18,15 +18,15 @@
             <ItemTemplate>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <!-- <img src="<%# Eval("Article.CoverImagePath") %>" alt="<%# Eval("Article.Title") %>" /> -->
+                        <!-- <img src="<%# Eval("CoverImagePath") %>" alt="<%# Eval("Title") %>" /> -->
                         <div class="caption">
-                            <h3><%# this.Highlight((string)Eval("Article.Title")) %></h3>
+                            <h3><%# this.Highlight((string)Eval("Title")) %></h3>
                             <p>
-                                <em><%# this.Highlight((string)Eval("Article.Review")) %></em> - by <a href="<%# FriendlyUrl.Href("~/Author", Eval("Author.Name")) %>"><%# this.Highlight((string)Eval("Author.Name"), "search-highlight-author") %></a>
+                                <em><%# this.Highlight((string)Eval("Review")) %></em> - by <a href="<%# FriendlyUrl.Href("~/Author", Eval("Author.Name")) %>"><%# this.Highlight((string)Eval("Author.Name"), "search-highlight-author") %></a>
                             </p>
                             <div class="pull-right">
-                                <a href="<%# FriendlyUrl.Href("~/Purchase", Eval("Article.ArticleId")) %>" class="btn btn-default btn-sm" role="button">
-                                    <%# this.IsAPurchasedItem((Guid)Eval("Article.ArticleId")) ? "Read" : "Purchase" %>
+                                <a href="<%# FriendlyUrl.Href("~/Article", Eval("Title")) %>" class="btn btn-default btn-sm" role="button">
+                                    <%# this.IsAPurchasedItem((Guid)Eval("ArticleId")) ? "Read" : "Purchase" %>
                                 </a>
                             </div>
                             <div class="clearfix"></div>

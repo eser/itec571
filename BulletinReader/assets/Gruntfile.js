@@ -2,6 +2,16 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        less: {
+            options: {
+                compress: false,
+                yuicompress: false,
+                optimization: 0
+            },
+            files: {
+                'css/style.css': [ 'less/style.less' ]
+            }
+        },
         concat: {
             js: {
                 options: {
@@ -60,8 +70,21 @@ module.exports = function(grunt) {
             ]
         },
         watch: {
-            files: ['<%= concat.js.src %>', '<%= concat.css.src %>'],
-            tasks: ['jshint', 'concat:js', 'uglify:js', 'concat:css', 'cssmin:css']
+            less: {
+                files: ['less/**/*.less'],
+                tasks: ['less'],
+                options: {
+                    nospawn: true
+                }
+            },
+            css: {
+                files: ['<%= concat.css.src %>'],
+                tasks: ['concat:css', 'cssmin:css']
+            },
+            js: {
+                files: ['<%= concat.js.src %>'],
+                tasks: ['jshint', 'concat:js', 'uglify:js']
+            }
         },
         clean: {
             all: {
@@ -75,6 +98,7 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -83,6 +107,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('test', ['jshint']);
-    grunt.registerTask('default', ['jshint', 'concat:js', 'uglify:js', 'concat:css', 'cssmin:css']); // , 'copy'
+    grunt.registerTask('js', ['jshint', 'concat:js', 'uglify:js']);
+    grunt.registerTask('css', ['less', 'concat:css', 'cssmin:css']);
+    grunt.registerTask('default', ['jshint', 'concat:js', 'uglify:js', 'less', 'concat:css', 'cssmin:css']); // , 'copy'
 
 };

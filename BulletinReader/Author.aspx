@@ -18,15 +18,15 @@
             <ItemTemplate>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <!-- <img src="<%# Eval("Article.CoverImagePath") %>" alt="<%# Eval("Article.Title") %>" /> -->
+                        <!-- <img src="<%# Eval("CoverImagePath") %>" alt="<%# Eval("Title") %>" /> -->
                         <div class="caption">
-                            <h3><%# Eval("Article.Title") %></h3>
+                            <h3><%# Eval("Title") %></h3>
                             <p>
-                                <em><%# Eval("Article.Review") %></em></a>
+                                <em><%# Eval("Review") %></em></a>
                             </p>
                             <div class="pull-right">
-                                <a href="<%# FriendlyUrl.Href("~/Purchase", Eval("Article.ArticleId")) %>" class="btn btn-default btn-sm" role="button">
-                                    <%# this.IsAPurchasedItem((Guid)Eval("Article.ArticleId")) ? "Read" : "Purchase" %>
+                                <a href="<%# FriendlyUrl.Href("~/Article", Eval("Title")) %>" class="btn btn-default btn-sm" role="button">
+                                    <%# this.IsAPurchasedItem((Guid)Eval("ArticleId")) ? "Read" : "Purchase" %>
                                 </a>
                             </div>
                             <div class="clearfix"></div>

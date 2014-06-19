@@ -124,7 +124,7 @@
     <Content Include="assets\css\font-awesome.css" />
     <Content Include="assets\css\fonts.css" />
     <Content Include="assets\css\laroux.ui.css" />
-    <Content Include="assets\css\style.css" />
+    <None Include="assets\less\style.less" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\Gruntfile.js" />
@@ -1134,6 +1134,7 @@
     <Content Include="assets\node_modules\grunt\node_modules\underscore.string\test\test_underscore\vendor\qunit.js" />
     <Content Include="assets\node_modules\grunt\node_modules\underscore.string\test\underscore.js" />
     <Content Include="assets\node_modules\grunt\node_modules\which\which.js" />
+    <Content Include="Article.aspx" />
     <Content Include="Author.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Register.aspx" />
@@ -1799,6 +1800,13 @@
     <Compile Include="Api\Classes\LoginRequest.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Article.aspx.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article.aspx.designer.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

@@ -2,9 +2,9 @@
 {
     using System;
     using System.Linq;
-    using BulletinReader.DataClasses;
     using BulletinReader.Utils;
     using Microsoft.AspNet.FriendlyUrls;
+    using ArticleDataClass = BulletinReader.DataClasses.Article;
 
     public partial class Search : BasePage
     {
@@ -74,7 +74,7 @@
         private void FetchData()
         {
 
-            var predicate = PredicateBuilder.False<Article>();
+            var predicate = PredicateBuilder.False<ArticleDataClass>();
             foreach (string keyword in this.Keywords)
             {
                 string temp = keyword;
@@ -83,7 +83,7 @@
 
             var articles = (from article in Global.Instance.DbContextMain.Articles.Where(predicate)
                             orderby article.StoreDate descending, article.PublishDate descending
-                            select new { Article = article, Author = article.Author });
+                            select article);
 
             int skip = (this.CurrentPage - 1) * Default.PageSize;
             int rowCount = 0;

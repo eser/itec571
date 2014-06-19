@@ -33,7 +33,7 @@
         {
             var articles = (from article in Global.Instance.DbContextMain.Articles
                             orderby article.StoreDate descending, article.PublishDate descending
-                            select new { Article = article, Author = article.Author });
+                            select article);
 
             int skip = (this.CurrentPage - 1) * Default.PageSize;
             int rowCount = 0;
