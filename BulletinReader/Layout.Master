@@ -5,15 +5,15 @@
 
 <html lang="en">
 <head runat="server">
-    <script src="assets/js/bulletin-reader.min.js"></script>
-    <link rel="stylesheet" href="assets/css/bulletin-reader.min.css" />
+    <script src="<%: ResolveClientUrl("~/assets/js/bulletin-reader.min.js") %>"></script>
+    <link rel="stylesheet" href="<%: ResolveClientUrl("~/assets/css/bulletin-reader.min.css") %>" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <script>
-        $l.contentBegin('main', '');
+        $l.contentBegin('main', '<%= ResolveClientUrl("~/") %>');
     </script>
 
     <nav class="navbar navbar-default" role="navigation">
@@ -35,12 +35,12 @@
                 </ul>
                 <form id="search-form" class="navbar-form navbar-left navbar-input-group" method="GET" action="<%: FriendlyUrl.Href("~/Search") %>" role="search">
                     <div class="form-group">
-                        <input class="form-control" name="q" type="text" placeholder="Enter keyword(s) to find" value="<%= this.SearchBoxText %>" />
+                        <input class="form-control" name="q" type="text" placeholder="Enter keyword(s) to find" value="<%: this.SearchBoxText %>" />
                         <button type="submit" class="btn"><span class="glyphicon glyphicon-search" title="Search"></span></button>
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <% if (this.LoggedUser == null) { %>
+                    <% if ((this.Page as BulletinReader.BasePage).LoggedUser == null) { %>
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
                         <div class="dropdown-menu dropdown-menu-custom">
@@ -62,7 +62,7 @@
                     </li>
                     <% } else { %>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= this.LoggedUser.UserName %> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= (this.Page as BulletinReader.BasePage).LoggedUser.UserName %> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<%: FriendlyUrl.Href("~/PurchasedItems") %>">Purchased Items</a></li>
                             <li><a href="<%: FriendlyUrl.Href("~/EditProfile") %>">Edit My Profile</a></li>

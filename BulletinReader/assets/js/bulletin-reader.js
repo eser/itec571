@@ -14406,7 +14406,14 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                     },
                     function (x) {
                         if (x.success) {
-                            location.href = './';
+                            var url = location.toString();
+                            if (url.match('#')) {
+                                var url_splitted = url.split('#');
+                                // gotoTab(url_splitted[1]);
+                                url = url_splitted[0];
+                            }
+
+                            location.href = url;
                             return;
                         }
 
@@ -14445,7 +14452,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                     $l.baseLocation + 'api/gate/logout',
                     {},
                     function (x) {
-                        location.href = './';
+                        location.href = $l.baseLocation;
                     }
                 );
 

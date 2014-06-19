@@ -1,16 +1,24 @@
 ﻿namespace BulletinReader
 {
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Threading;
     using System.Web;
     using System.Web.UI;
+    using BulletinReader.DataClasses;
     using Microsoft.AspNet.Identity;
 
     public class BasePage : Page
     {
+        public BasePage()
+            : base()
+        {
+            this.LoggedUser = Global.Instance.UserManager.FindById(this.User.Identity.GetUserId());
+        }
+
+        public User LoggedUser { get; set; }
+
         protected override void InitializeCulture()
         {
             HttpCookie cookie = this.Request.Cookies["CurrentLanguage"];
@@ -39,23 +47,25 @@
             base.InitializeCulture();
         }
 
-        protected bool IsAPurchasedItem(Guid articleId)
+        protected PurchasedItem GetPurchasedItem(Guid articleId)
         {
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                return false;
+                return null;
             }
 
             if (this.Session["purchasedItems"] == null)
             {
-                var purchasedItems = (from purchasedItem in Global.Instance.DbContextMain.PurchasedItems
-                                      where purchasedItem.UserId == HttpContext.Current.User.Identity.GetUserId()
-                                      select purchasedItem.ArticleId);
+                var userId = HttpContext.Current.User.Identity.GetUserId();
 
-                this.Session["purchasedItems"] = purchasedItems.ToList();
+                var purchasedItems = (from purchasedItem in Global.Instance.DbContextMain.PurchasedItems
+                                      where purchasedItem.UserId == userId
+                                      select purchasedItem);
+
+                this.Session["purchasedItems"] = purchasedItems.ToArray();
             }
 
-            return (this.Session["purchasedItems"] as List<Guid>).Contains(articleId);
+            return (this.Session["purchasedItems"] as PurchasedItem[]).Where(rec => rec.ArticleId == articleId).FirstOrDefault();
         }
     }
 }

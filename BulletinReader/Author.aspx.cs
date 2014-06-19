@@ -49,7 +49,7 @@
             List<string> segments = new List<string>(this.Request.GetFriendlyUrlSegments());
             if (segments.Count < 1 || string.IsNullOrWhiteSpace(segments[0]))
             {
-                // throw new InvalidOperationException();
+                throw new InvalidOperationException();
             }
 
             string authorName = HttpUtility.UrlDecode(segments[0]);

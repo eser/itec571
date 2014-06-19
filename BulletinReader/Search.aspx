@@ -18,7 +18,7 @@
             <ItemTemplate>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <!-- <img src="<%# Eval("CoverImagePath") %>" alt="<%# Eval("Title") %>" /> -->
+                        <img src="<%# Eval("CoverImagePath") %>" alt="<%# Eval("Title") %>" class="img-responsive" />
                         <div class="caption">
                             <h3><%# this.Highlight((string)Eval("Title")) %></h3>
                             <p>
@@ -26,7 +26,7 @@
                             </p>
                             <div class="pull-right">
                                 <a href="<%# FriendlyUrl.Href("~/Article", Eval("Title")) %>" class="btn btn-default btn-sm" role="button">
-                                    <%# this.IsAPurchasedItem((Guid)Eval("ArticleId")) ? "Read" : "Purchase" %>
+                                    <%# this.GetPurchasedItem((Guid)Eval("ArticleId")) != null ? "Read" : "Purchase" %>
                                 </a>
                             </div>
                             <div class="clearfix"></div>
